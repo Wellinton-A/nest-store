@@ -1,0 +1,15 @@
+### Get initial page
+GET http://localhost:3000/users
+
+
+### Register a new user
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "name": "Wellinton",
+  "phone": "47991484848",
+  "email": "wellinton12@email.com",
+  "cpf": "13365",
+  "password": "greatPassword"
+}
