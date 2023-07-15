@@ -13,7 +13,7 @@ export class UsersService {
     @InjectRepository(UserEntity) private readonly repo: Repository<UserEntity>,
   ) {}
 
-  async createUser(userDto: CreateUserDto) {
+  async createUser(userDto: CreateUserDto): Promise<UserEntity> {
     const userCheck: UserEntity[] = await this.repo.query(checkinfos, [
       userDto.email,
       userDto.cpf,
@@ -35,8 +35,8 @@ export class UsersService {
     return this.repo.save(user)
   }
 
-  async findAllUsers() {
-    const users = await this.repo.query('SELECT * FROM "users";')
-    console.log(users)
+  async findAllUsers(): Promise<UserEntity[]> {
+    const users = await this.repo.query('SELECT * FROM "user";')
+    return users
   }
 }

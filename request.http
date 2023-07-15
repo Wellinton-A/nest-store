@@ -9,7 +9,15 @@ Content-Type: application/json
 {
   "name": "Wellinton",
   "phone": "47991484848",
-  "email": "wellinton12@email.com",
-  "cpf": "13365",
+  "email": "wellinton3@email.com",
+  "cpf": "1336585",
   "password": "greatPassword"
 }
+
+
+### Get all States
+GET http://localhost:3000/state
+
+
+### Get all cities by stateId
+GET http://localhost:3000/city/11
