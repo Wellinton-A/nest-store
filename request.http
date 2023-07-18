@@ -21,4 +21,23 @@ GET http://localhost:3000/state
 
 
 ### Get all cities by stateId
-GET http://localhost:3000/city/11
+GET http://localhost:3000/city/24
+
+
+### Post new Address
+POST http://localhost:3000/address
+Content-Type: application/json
+
+{
+  "cep": "89633-590",
+  "cityId": 560,
+  "numberAddress": 588
+}
+
+
+### Get user by Id
+GET http://localhost:3000/users/1
+
+
+### Get Addresses by UserId
+GET http://localhost:3000/address/5

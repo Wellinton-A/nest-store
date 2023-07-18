@@ -4,7 +4,7 @@ import { Repository } from 'typeorm'
 
 import { UserEntity } from './entities/user.entity'
 import { CreateUserDto } from './dtos/create-user.dto'
-import { checkinfos } from '../utils/query'
+import { checkinfos, userByIdQuery } from '../utils/query'
 import { hashPassword } from '../utils/password'
 
 @Injectable()
@@ -35,8 +35,20 @@ export class UsersService {
     return this.repo.save(user)
   }
 
+  async findUserById(userId: number): Promise<UserEntity[]> {
+    return this.repo.query(userByIdQuery, [userId])
+  }
+
   async findAllUsers(): Promise<UserEntity[]> {
     const users = await this.repo.query('SELECT * FROM "user";')
     return users
+  }
+
+  async findUserByIdUsingRelations(userId: number): Promise<UserEntity> {
+    return await this.repo
+      .createQueryBuilder('user')
+      .leftJoinAndSelect('user.addresses', 'addresses')
+      .where('user.id = :id', { id: userId })
+      .getOne()
   }
 }

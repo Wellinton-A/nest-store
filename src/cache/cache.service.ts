@@ -11,9 +11,9 @@ export class CacheService {
     functionRequest: () => Promise<T>,
   ): Promise<T> {
     const allData: T = await this.cacheManager.get(key)
-    console.log(allData)
 
     if (allData) {
+      console.log(allData)
       return allData
     }
     const data: T = await functionRequest()
