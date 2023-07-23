@@ -26,13 +26,13 @@ export class UserEntity {
   cpf: string
 
   @Column({ name: 'hashedpassword', nullable: false })
-  hashedPassword: string
+  hashedpassword: string
 
   @Column({ nullable: false })
   salt: string
 
   @Column({ name: 'type_user', nullable: false })
-  typeUser: number
+  type_user: number
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date

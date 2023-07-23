@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 
@@ -18,5 +18,18 @@ export class CityService {
       `state_${stateId}`,
       async () => await this.repo.query(getCities, [stateId]),
     )
+  }
+
+  async getCityById(city_id: number) {
+    const city = await this.repo.findOne({
+      where: {
+        id: city_id,
+      },
+      relations: ['addresses'],
+    })
+    if (!city) {
+      throw new NotFoundException('City Id does not exist')
+    }
+    return city
   }
 }

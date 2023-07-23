@@ -19,9 +19,12 @@ export function hashPassword(password: string): PasswordFunction {
 
 export function validPassword(
   password: string,
-  salt: string,
-  hashedPassword: string,
+  salt: string | undefined,
+  hashedPassword: string | undefined,
 ): boolean {
+  if (!salt || !hashedPassword) {
+    return false
+  }
   const hash = crypto
     .pbkdf2Sync(password, salt, 10000, 64, 'sha-512')
     .toString('hex')

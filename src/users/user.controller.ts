@@ -20,6 +20,7 @@ export class UsersController {
     return this.usersService.findAllUsers()
   }
 
+  @serialize(ReturnUserDto)
   @Get('/:userId')
   async getUserById(@Param('userId') userId: number) {
     return await this.usersService.findUserByIdUsingRelations(userId)

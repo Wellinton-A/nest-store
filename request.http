@@ -9,10 +9,20 @@ Content-Type: application/json
 {
   "name": "Wellinton",
   "phone": "47991484848",
-  "email": "wellinto65@email.com",
-  "cpf": "12345678910",
+  "email": "wellinton658@email.com",
+  "cpf": "123456789101112",
   "password": "greatPassword",
   "akjhdkjhs": "lskdjlkjasd"
+}
+
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "wellinton658@email.com",
+  "password": "greatPassword"
 }
 
 
@@ -20,8 +30,16 @@ Content-Type: application/json
 GET http://localhost:3000/state
 
 
+### Get states by id
+GET http://localhost:3000/state/5
+
+
 ### Get all cities by stateId
-GET http://localhost:3000/city/24
+GET http://localhost:3000/city/state/24
+
+
+### Get all cities by cityId
+GET http://localhost:3000/city/560
 
 
 ### Post new Address
@@ -36,8 +54,8 @@ Content-Type: application/json
 
 
 ### Get user by Id
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/5
 
 
 ### Get Addresses by UserId
-GET http://localhost:3000/address/5
+GET http://localhost:3000/address/1

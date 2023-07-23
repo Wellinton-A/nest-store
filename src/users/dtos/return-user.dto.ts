@@ -1,4 +1,5 @@
-import { Expose } from 'class-transformer'
+import { Expose, Type } from 'class-transformer'
+import { ReturnAddressDto } from 'src/address/dtos/return-address.dto'
 
 export class ReturnUserDto {
   @Expose()
@@ -12,4 +13,8 @@ export class ReturnUserDto {
 
   @Expose()
   cpf: string
+
+  @Expose()
+  @Type(() => ReturnAddressDto)
+  addresses: ReturnAddressDto[]
 }

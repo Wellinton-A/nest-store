@@ -5,7 +5,7 @@ export class ReturnAddressDto {
   id: number
 
   @Expose()
-  user_id: number
+  userId: number
 
   @Expose()
   complement: string
@@ -17,5 +17,5 @@ export class ReturnAddressDto {
   cep: string
 
   @Expose()
-  city_id: number
+  cityId: number
 }
